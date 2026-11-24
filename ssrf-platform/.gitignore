@@ -1,0 +1,6 @@
+
+# ssrf-platform
+bin/
+runs/
+oob-data/
+*.jsonl

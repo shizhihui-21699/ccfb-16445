@@ -1,0 +1,38 @@
+{
+  "version": "1",
+  "services": [
+    {
+      "id": "link-preview",
+      "base_url": "http://127.0.0.1:9099",
+      "description": "demo URL preview service",
+      "headers": {"X-From": "ssrf-scanner"},
+      "endpoints": [
+        {
+          "id": "fetch",
+          "path": "/preview/fetch",
+          "method": "GET",
+          "params": [
+            {"name": "url", "in": "query", "placeholder": "https://example.invalid/"}
+          ]
+        },
+        {
+          "id": "render",
+          "path": "/safe/render",
+          "method": "GET",
+          "params": [
+            {"name": "url", "in": "query", "placeholder": "https://example.invalid/"}
+          ]
+        },
+        {
+          "id": "webhook",
+          "path": "/webhook",
+          "method": "POST",
+          "body_template": {"channel": "default"},
+          "params": [
+            {"name": "url", "in": "json", "json_path": "url", "placeholder": "https://example.invalid/"}
+          ]
+        }
+      ]
+    }
+  ]
+}
